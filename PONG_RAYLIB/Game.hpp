@@ -9,7 +9,7 @@
 #include "Menu.hpp"
 
 #define WIN_SCORE 10
-#define BAT_SPEED 7.5f
+#define BAT_SPEED 8.0f
 
 enum struct GameState {
 	Null, Playing, Waiting, Paused, Menu, About, Win
@@ -23,12 +23,12 @@ public:
 //----------------------------------------------------
 //Ctor and Dtor
 	static Game* get_instance();
-	static void cleanup() { delete instance; instance = nullptr; }
 	~Game();
 //----------------------------------------------------
 //Deleted assignemnet and cpy ctor-doesn't really make sense to copy a game...
 	Game(const Game&) = delete;
-	Game& operator= (const Game&) = delete;
+	Game& operator=(const Game&) = delete;
+
 //----------------------------------------------------
 //main_loop that does everything;
 	void main_loop();

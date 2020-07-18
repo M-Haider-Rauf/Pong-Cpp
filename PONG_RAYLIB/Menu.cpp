@@ -54,7 +54,7 @@ void Menu::draw() const
 void Menu::draw_title() const
 {
 	DrawText("PONG!", TITLE_X, TITLE_Y, TITLE_SIZE, RED);
-	DrawText("by HaiderRauf69", TITLE_X + 60.f, TITLE_Y + TITLE_SIZE, 20, YELLOW);
+	DrawText("by Haider Rauf", TITLE_X + 60.f, TITLE_Y + TITLE_SIZE, 20, YELLOW);
 }
 
 

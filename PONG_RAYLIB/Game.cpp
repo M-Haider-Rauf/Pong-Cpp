@@ -6,8 +6,8 @@ const char* Game::about_text =
 "I was bored as fuck in Quarantine so\n"
 "I did what any completely normal human\n"
 "being would do i.e. code.\n"
-"Wait, you're saying that people don't\n"
-"usually code when bored? Strange.\n\n"
+"I had a lot of fun in coding this, \n"
+"even though it's not much.\n\n"
 "Anyways, press ENTER to go back to Menu.\n";
 
 //instance for singleton pattern
@@ -46,19 +46,15 @@ Game::Game()
 	game_state = GameState::Menu;
 }
 
-Game::~Game() 
-{
-}
-
 Game* Game::get_instance()
 {
-	if (!instance) {
-		instance = new Game();
-	}
-
-	return instance;
+	static Game game;
+	return &game;
 }
 
+Game::~Game()
+{
+}
 
 //-------------------------------------------------------------
 //Main Loop that does everything
@@ -338,7 +334,7 @@ void Game::handle_about_events()
 //Win Screen
 void Game::render_win() const
 {
-	size_t win_player = score1 > score2 ? 1 : 2;
+	size_t win_player = score1 > score2 ? 2 : 1;
 
 	DrawText(FormatText("Player %u won!\nPress R to restart\n...Or ESCAPE to Quit", win_player),
 		220, 200, 40, RED);
@@ -377,8 +373,8 @@ void Game::draw_borders(float thickness) const	//Draw all borders
 void Game::draw_score() const
 {
 	static constexpr float yOff = BORDER_SIZE + 2.f;
-	static constexpr float score1_pos = WIN_WIDTH / 2.f - 50.f;
-	static constexpr float score2_pos = WIN_WIDTH / 2.f + 30.f;
+	static constexpr float score2_pos = WIN_WIDTH / 2.f - 50.f;
+	static constexpr float score1_pos = WIN_WIDTH / 2.f + 30.f;
 
 	DrawText(TextFormat("%u", score1), score1_pos, yOff, 40, RED);
 	DrawText(TextFormat("%u", score2), score2_pos, yOff, 40, RED);
