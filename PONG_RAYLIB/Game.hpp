@@ -96,8 +96,6 @@ private:
 	bool quit;
 
 	static const char* about_text;
-
-	static Game* instance;
 };
 
 

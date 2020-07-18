@@ -10,8 +10,6 @@ const char* Game::about_text =
 "even though it's not much.\n\n"
 "Anyways, press ENTER to go back to Menu.\n";
 
-//instance for singleton pattern
-Game* Game::instance = nullptr;
 
 Game::Game()
 	: menu()
